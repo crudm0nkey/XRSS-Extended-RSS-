@@ -8,7 +8,7 @@ import (
 )
 
 type PluginConfig struct {
-	MainURL string `json:"main_url"`
+	MainURLs []string `json:"main_urls"`
 }
 
 func LoadPlugins() ([]os.DirEntry, error) {
@@ -20,10 +20,11 @@ func LoadPlugins() ([]os.DirEntry, error) {
 	for _, plugin := range pluginNames {
 		pluginJsonCfg, err := readPluginJson(plugin.Name())
 		if err != nil {
+			fmt.Println(err.Error())
 			return []os.DirEntry{}, err
 		}
 
-		fmt.Println(pluginJsonCfg.MainURL)
+		fmt.Println(pluginJsonCfg.MainURLs)
 	}
 
 	return []os.DirEntry{}, nil
