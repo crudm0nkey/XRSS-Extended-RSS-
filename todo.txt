@@ -1,0 +1,6 @@
+
+
+
+
+-- Not to important
+Make the config file actually usefull 
